@@ -21,11 +21,15 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: 'JetBrains Mono', sans-serif;
+    *{box-sizing: border-box;}
     ::selection {
         background: $active;
     }
 }
-
+.contentWrapper {
+    height: 100%;
+    width: 100vmin;
+}
 header {
     height: 75dvh;
     width: 100%;
@@ -38,6 +42,17 @@ header {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    // &::after {
+    //     content: "";
+    //     height: 5vmin;
+    //     width: 100dvw;
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     clip-path: ellipse(52% 65% at 50% 100%);
+    //     z-index: 999;
+    //     background: $bg2;
+    // }
 }
 
 #textWrapper {
@@ -117,10 +132,11 @@ sectionOverlay {
 }
 #sidebar {
     height: calc(100% - 2vmin);
-    width: calc(5dvw - 2vmin);
+    width: calc(10vmin - 2vmin);
     position: absolute;
     top: 1vmin;
     left: 1vmin;
+    padding: 1vmin;
     background: #2222226b;
     backdrop-filter: blur(5vmin);
     box-sizing: border-box;
@@ -139,11 +155,26 @@ sectionOverlay {
     width: calc(45dvw - 2vmin);
     position: absolute;
     top: 1vmin;
-    left: 5dvw;
+    left: 10vmin;
     background: #2222226b;
     backdrop-filter: blur(5vmin);
     box-sizing: border-box;
     border: .35vmin solid #ffffff20;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #00000000;
+        transition: .35s;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #88888885;
+        border-radius: 2vmin;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: $active;
+    }
     border-radius: 1.5vmin;
     filter: drop-shadow(0 0 1vmin #ffffff20);
     padding: 5vmin;

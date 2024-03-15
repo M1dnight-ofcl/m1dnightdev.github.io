@@ -14,8 +14,16 @@ body, html {
   margin: 0;
   font-family: "JetBrains Mono", sans-serif;
 }
+body *, html * {
+  box-sizing: border-box;
+}
 body ::selection, html ::selection {
   background: #9900ff;
+}
+
+.contentWrapper {
+  height: 100%;
+  width: 100vmin;
 }
 
 header {
@@ -97,10 +105,11 @@ sectionOverlay {
 
 #sidebar {
   height: calc(100% - 2vmin);
-  width: calc(5dvw - 2vmin);
+  width: 8vmin;
   position: absolute;
   top: 1vmin;
   left: 1vmin;
+  padding: 1vmin;
   background: rgba(34, 34, 34, 0.4196078431);
   backdrop-filter: blur(5vmin);
   box-sizing: border-box;
@@ -150,14 +159,29 @@ sectionOverlay {
   width: calc(45dvw - 2vmin);
   position: absolute;
   top: 1vmin;
-  left: 5dvw;
+  left: 10vmin;
   background: rgba(34, 34, 34, 0.4196078431);
   backdrop-filter: blur(5vmin);
   box-sizing: border-box;
   border: 0.35vmin solid rgba(255, 255, 255, 0.1254901961);
+  overflow-y: scroll;
   border-radius: 1.5vmin;
   filter: drop-shadow(0 0 1vmin rgba(255, 255, 255, 0.1254901961));
   padding: 5vmin;
+}
+#contents::-webkit-scrollbar {
+  width: 10px;
+}
+#contents::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+  transition: 0.35s;
+}
+#contents::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.5215686275);
+  border-radius: 2vmin;
+}
+#contents::-webkit-scrollbar-thumb:hover {
+  background: #9900ff;
 }
 #contents h1 {
   font-size: 8.5vmin;
